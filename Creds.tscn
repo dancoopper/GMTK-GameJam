@@ -1,0 +1,102 @@
+[gd_scene load_steps=5 format=3 uid="uid://didvxuhr6ybqn"]
+
+[sub_resource type="Theme" id="Theme_apu2e"]
+default_font_size = 20
+
+[sub_resource type="Theme" id="Theme_r7gbw"]
+default_font_size = 30
+
+[sub_resource type="Theme" id="Theme_kwgbp"]
+default_font_size = 25
+
+[sub_resource type="Theme" id="Theme_r54hr"]
+default_font_size = 20
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.0
+offset_top = -37.0
+offset_right = 123.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_apu2e")
+theme_override_constants/separation = 2
+
+[node name="DUNGEON TILE SET" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "DUNGEON TILE SET"
+
+[node name="Label3" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Ramses Animations Pack"
+
+[node name="Assets" type="Label" parent="."]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 237.0
+offset_right = 551.0
+offset_bottom = 279.0
+theme = SubResource("Theme_r7gbw")
+text = "Assets"
+
+[node name="Names" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -253.0
+offset_right = 38.0
+offset_bottom = -218.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_kwgbp")
+text = "Team Names"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = -212.0
+offset_right = 78.0
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_r54hr")
+theme_override_constants/separation = 2
+
+[node name="Name 1" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Sokmontrey"
+
+[node name="Name 2" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Sam"
+
+[node name="Name 3" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+text = "Jonathan"

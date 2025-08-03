@@ -794,6 +794,7 @@ floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.309
 Speed = 300
+Jump_velocity = -250
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(144, 83)

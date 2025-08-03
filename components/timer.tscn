@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1f55mico2poj"]
+
+[ext_resource type="Script" uid="uid://s460vg620431" path="res://scripts/loop_timer.gd" id="1_4swdu"]
+
+[node name="Timer" type="Timer"]
+one_shot = true
+autostart = true
+script = ExtResource("1_4swdu")
+
+[connection signal="timeout" from="." to="." method="on_timeout"]

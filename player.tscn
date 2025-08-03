@@ -1,11 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://dw6jir2b453su"]
+[gd_scene load_steps=20 format=3 uid="uid://dw6jir2b453su"]
 
 [ext_resource type="Script" uid="uid://bvjupxjc2skqi" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://vvac6id3mm1b" path="res://assests/Ramses Free Package/Idle/Spr_Idle.png" id="2_onrkg"]
 [ext_resource type="Texture2D" uid="uid://ceyaxwbbj43qx" path="res://assests/Ramses Free Package/Walk/Spr_Walk.png" id="3_i3pqv"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
-radius = 9.05539
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
 atlas = ExtResource("2_onrkg")
@@ -127,10 +124,6 @@ animations = [{
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, -9)
-shape = SubResource("CircleShape2D_4flbx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -9)

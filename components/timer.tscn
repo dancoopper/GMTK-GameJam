@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dmob2n6cqee1m" path="res://scripts/LoopTimer.cs" id="1_4swdu"]
 
 [node name="Timer" type="Timer" node_paths=PackedStringArray("Freezables")]
-wait_time = 2.0
 one_shot = true
 autostart = true
 script = ExtResource("1_4swdu")

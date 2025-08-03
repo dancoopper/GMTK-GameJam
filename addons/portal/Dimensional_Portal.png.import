@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2aykcsxiivs7"
-path="res://.godot/imported/Furnitures.png-d111d507330f583e677235b4b8f66b2d.ctex"
+uid="uid://cgcdavjayi2kr"
+path="res://.godot/imported/Dimensional_Portal.png-98110b38d011c576f983caa4b33ef2c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CatPackFree/Furnitures.png"
-dest_files=["res://.godot/imported/Furnitures.png-d111d507330f583e677235b4b8f66b2d.ctex"]
+source_file="res://addons/portal/Dimensional_Portal.png"
+dest_files=["res://.godot/imported/Dimensional_Portal.png-98110b38d011c576f983caa4b33ef2c5.ctex"]
 
 [params]
 

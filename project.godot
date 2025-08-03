@@ -11,13 +11,15 @@ config_version=5
 [application]
 
 config/name="gamejam2d"
-run/main_scene="uid://dardml1ldmbnb"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="res://icon.svg"
 
 [dotnet]
 
 project/assembly_name="gamejam2d"
+
+[global_group]
+
+Player=""
 
 [rendering]
 

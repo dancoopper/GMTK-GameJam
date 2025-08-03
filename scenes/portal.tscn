@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://p1x8obe6gott"]
 
-[ext_resource type="Script" uid="uid://sgnstly0ic6k" path="res://scenes/portal.gd" id="1_1ffj6"]
+[ext_resource type="Script" path="res://scenes/portal.gd" id="1_1ffj6"]
 [ext_resource type="Texture2D" uid="uid://cgcdavjayi2kr" path="res://addons/portal/Dimensional_Portal.png" id="2_jr6l0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4jfq"]
@@ -60,18 +60,18 @@ size = Vector2(54, 182)
 script = ExtResource("1_1ffj6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(96, 240)
+position = Vector2(-4.72531, 7.259)
 scale = Vector2(6, 6)
 sprite_frames = SubResource("SpriteFrames_5yude")
 autoplay = "default"
 frame_progress = 0.688408
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(128, 240)
+position = Vector2(27.2747, 7.259)
 shape = SubResource("RectangleShape2D_e5sgc")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-316, 235)
+position = Vector2(-199, 2)
 scale = Vector2(-1.02747, 48.1259)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

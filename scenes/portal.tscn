@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://p1x8obe6gott"]
+[gd_scene load_steps=11 format=3 uid="uid://p1x8obe6gott"]
 
+[ext_resource type="Script" uid="uid://sgnstly0ic6k" path="res://scenes/portal.gd" id="1_1ffj6"]
 [ext_resource type="Texture2D" uid="uid://cgcdavjayi2kr" path="res://addons/portal/Dimensional_Portal.png" id="2_jr6l0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d4jfq"]
@@ -56,6 +57,7 @@ animations = [{
 size = Vector2(54, 182)
 
 [node name="Portal" type="Area2D"]
+script = ExtResource("1_1ffj6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(96, 240)

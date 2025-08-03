@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dardml1ldmbnb"]
+[gd_scene load_steps=6 format=3 uid="uid://dardml1ldmbnb"]
 
 [ext_resource type="PackedScene" uid="uid://dw6jir2b453su" path="res://player.tscn" id="1_80nbo"]
 [ext_resource type="Texture2D" uid="uid://gg0mvdhu8gll" path="res://assests/Dungeon Tile Set.png" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://b1f55mico2poj" path="res://components/timer.tscn" id="3_feb5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("2_e2o6t")
@@ -164,7 +165,7 @@ floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.309
 SPEED = 100.0
-JUMP_VELOCITY = -100.0
+JUMP_VELOCITY = -250.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(144, 83)
@@ -175,3 +176,8 @@ position = Vector2(145, 85)
 tile_set = SubResource("TileSet_fc0e3")
 format = 2
 layer_0/tile_data = PackedInt32Array(262135, 65536, 1, 262136, 65536, 1, 262138, 65536, 1, 262139, 65536, 1, 262142, 65536, 1, 262143, 65536, 1, 196609, 131072, 2, 196610, 131072, 2, 196611, 131072, 2, 196612, 131072, 2, 196613, 131072, 2, 196614, 131072, 2, 196615, 131072, 2, 196616, 131072, 2, 262140, 65536, 1, 262141, 65536, 1, 262137, 65536, 1, 327671, 131072, 2, 327672, 131072, 2, 327673, 131072, 2, 327674, 131072, 2, 327675, 131072, 2, 327676, 131072, 2, 327677, 131072, 2, 327678, 131072, 2, 327679, 131072, 2, 262144, 131072, 2, 262145, 131072, 2, 262146, 131072, 2, 262147, 131072, 2, 262148, 131072, 2, 262149, 131072, 2, 262150, 131072, 2, 262151, 131072, 2, 262152, 131072, 2, 131072, 131072, 1, 131073, 131072, 1, 131074, 131072, 1, 131075, 131072, 1, 131076, 131072, 1, 131077, 131072, 1, 131078, 131072, 1, 131079, 131072, 1, 131080, 196608, 1, 196607, 327680, 1, 65536, 327680, 1, 65537, 196608, 1, 65538, 393216, 1, 1, 720896, 9, 196608, 393216, 5)
+
+[node name="Timer" parent="." node_paths=PackedStringArray("Freezables") instance=ExtResource("3_feb5d")]
+wait_time = 3.0
+one_shot = false
+Freezables = [NodePath("../CharacterBody2D")]

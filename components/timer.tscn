@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1f55mico2poj"]
+
+[ext_resource type="Script" uid="uid://dmob2n6cqee1m" path="res://scripts/LoopTimer.cs" id="1_4swdu"]
+
+[node name="Timer" type="Timer" node_paths=PackedStringArray("Freezables")]
+wait_time = 2.0
+one_shot = true
+autostart = true
+script = ExtResource("1_4swdu")
+Freezables = []
+
+[connection signal="timeout" from="." to="." method="OnTimeout"]

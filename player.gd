@@ -1,62 +1,55 @@
 extends CharacterBody2D
 
-@export var Speed = 15
-@export var Run_speed = 25
-@export var Friction = 15
-@export var Jump_velocity = -450  # Negative because up is -Y
+@export var Speed := 15
+@export var Run_speed := 25
+@export var Friction := 15
+@export var Jump_velocity := -450  # Negative = upward jump
 
-var move_speed = Speed * 10
-var run_speed = Run_speed * 10
-var friction = Friction * 100
+var move_speed := Speed * 10
+var run_speed := Run_speed * 10
+var friction := Friction * 100
 
-const accel = 1500
-var health = 100
+const accel := 1500
+var health := 100
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-@onready var anim = get_node("AnimatedSprite2D")
+@onready var anim := $AnimatedSprite2D
 
-var input = Vector2.ZERO
+var input := Vector2.ZERO
 
 func on_ready():
 	anim.play("idle")
 
 func _physics_process(delta):
 	if not is_on_floor():
-		velocity.y += (gravity + 1000) * delta  # Apply gravity over time
+		velocity.y += gravity * delta  # Apply gravity when not grounded
 
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = Jump_velocity  # Jump (usually mapped to spacebar)
+		velocity.y = Jump_velocity  # Jump if on floor
 
 	player_movement(delta)
+	move_and_slide()  # Moves using the built-in velocity
 
-func get_input():
-	input.x = int(Input.is_action_pressed("ui_right")) - int(Input.is_action_pressed("ui_left"))
+func get_input() -> Vector2:
+	input.x = Input.get_axis("ui_left", "ui_right")
 	return input.normalized()
 
 func player_movement(delta):
 	input = get_input()
 
 	if input == Vector2.ZERO:
-		if velocity.length() > (friction * delta):
-			velocity -= velocity.normalized() * (friction * delta)
+		if abs(velocity.x) > friction * delta:
+			velocity.x -= sign(velocity.x) * friction * delta
 		else:
-			anim.play("idle")
 			velocity.x = 0
+			anim.play("idle")
 	else:
 		anim.play("run")
-		
-		var dir = Input.get_axis("ui_left", "ui_right")
-		if dir == -1:
-			anim.flip_h = true
-		elif dir == 1:
-			anim.flip_h = false
+		anim.flip_h = input.x < 0
 
 		velocity.x += input.x * accel * delta
 		velocity.x = clamp(velocity.x, -move_speed, move_speed)
-
-	# Apply movement
-	move_and_slide()
 
 func _on_child_entered_tree(node):
 	if node.name == "Game":

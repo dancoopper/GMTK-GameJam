@@ -1,13 +1,12 @@
-[gd_scene load_steps=14 format=3 uid="uid://b2fubww5cyq2b"]
+[gd_scene load_steps=15 format=3 uid="uid://b2fubww5cyq2b"]
 
 [ext_resource type="PackedScene" uid="uid://dw6jir2b453su" path="res://player.tscn" id="1_v8kj3"]
 [ext_resource type="Shader" uid="uid://b5danpsdhpcrh" path="res://shaders/test.gdshader" id="2_crycw"]
 [ext_resource type="Texture2D" uid="uid://gg0mvdhu8gll" path="res://assests/Dungeon Tile Set.png" id="3_i2041"]
 [ext_resource type="PackedScene" uid="uid://b1f55mico2poj" path="res://components/timer.tscn" id="4_xy4tn"]
 [ext_resource type="Shader" uid="uid://c1pwp67fmff7c" path="res://shaders/warp.gdshader" id="5_usj0q"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_fc0e3"]
-radius = 9.05539
+[ext_resource type="PackedScene" uid="uid://br4wk4fgb42cd" path="res://Door.tscn" id="6_ejswk"]
+[ext_resource type="PackedScene" uid="uid://bk5rverpbk1uw" path="res://scenes/level2.tscn" id="7_bbk5w"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_eow3j"]
 shader = ExtResource("2_crycw")
@@ -154,7 +153,6 @@ texture = ExtResource("3_i2041")
 10:10/0 = 0
 12:10/0 = 0
 13:10/0 = 0
-13:10/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:11/0 = 0
 2:11/0 = 0
 5:11/0 = 0
@@ -164,7 +162,6 @@ texture = ExtResource("3_i2041")
 10:11/0 = 0
 12:11/0 = 0
 13:11/0 = 0
-13:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:12/0 = 0
 2:12/0 = 0
 3:12/0 = 0
@@ -246,22 +243,17 @@ shader_parameter/aberration_strength = 1.0
 
 [node name="Game" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_v8kj3")]
+[node name="player" parent="." instance=ExtResource("1_v8kj3")]
 position = Vector2(58, 130)
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_max_angle = 1.309
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(1, -9)
-shape = SubResource("CircleShape2D_fc0e3")
-
-[node name="TimeLabel" type="Label" parent="CharacterBody2D/CollisionShape2D"]
+[node name="TimeLabel" type="Label" parent="player"]
 material = SubResource("ShaderMaterial_eow3j")
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 75.0
-offset_bottom = 9.0
+offset_left = -13.0
+offset_top = -23.0
+offset_right = 76.0
 scale = Vector2(0.325, 0.325)
 theme = SubResource("Theme_7jktm")
 text = "Hello world"
@@ -274,14 +266,14 @@ zoom = Vector2(4, 4)
 position = Vector2(143, 84)
 tile_set = SubResource("TileSet_fc0e3")
 format = 2
-layer_0/tile_data = PackedInt32Array(327671, 131072, 2, 327672, 131072, 2, 327673, 131072, 2, 327674, 131072, 2, 327675, 131072, 2, 327676, 131072, 2, 327677, 131072, 2, 327678, 131072, 2, 327679, 131072, 2, 262144, 131072, 2, 262145, 131072, 2, 262146, 131072, 2, 262147, 131072, 2, 262148, 131072, 2, 262149, 131072, 2, 262150, 131072, 2, 262151, 131072, 2, 262152, 131072, 2, 196616, 131072, 2, 131080, 131072, 2, 65544, 131072, 2, 8, 131072, 2, -65528, 131072, 2, -131064, 131072, 2, -196600, 131072, 2, -262136, 131072, 2, -327672, 131072, 2, 262135, 131072, 2, 196599, 131072, 2, 131063, 131072, 2, 65527, 131072, 2, -9, 131072, 2, -65545, 131072, 2, -131081, 131072, 2, -196617, 131072, 2, -262153, 131072, 2, -262152, 131072, 2, -262151, 131072, 2, -262150, 131072, 2, -262149, 131072, 2, -262148, 131072, 2, -262147, 131072, 2, -262146, 131072, 2, -262145, 131072, 2, -327680, 131072, 2, -327679, 131072, 2, -327678, 131072, 2, -327677, 131072, 2, -327676, 131072, 2, -327675, 131072, 2, -327674, 131072, 2, -327673, 131072, 2, 262136, 196608, 5, 262137, 131072, 5, 262138, 131072, 5, 262139, 131072, 5, 262140, 131072, 5, 262141, 131072, 5, 262142, 131072, 5, 262143, 131072, 5, 196608, 131072, 5, 196609, 131072, 5, 196610, 131072, 5, 196611, 131072, 5, 196612, 131072, 5, 196613, 131072, 5, 196614, 131072, 5, 196615, 65536, 5, 131079, 65536, 6, 65543, 65536, 6, 7, 65536, 6, -65529, 65536, 6, -131065, 65536, 6, -196601, 65536, 6, -262137, 65536, 7, -262138, 131072, 7, -262139, 131072, 7, -262140, 131072, 7, -262141, 131072, 7, -262142, 131072, 7, -262143, 131072, 7, -262144, 131072, 7, -196609, 131072, 7, -196610, 131072, 7, -196611, 131072, 7, -196612, 131072, 7, -196613, 131072, 7, -196614, 131072, 7, -196615, 131072, 7, -196616, 196608, 7, -131080, 196608, 6, -65544, 196608, 6, -8, 196608, 6, 65528, 196608, 6, 131064, 196608, 6, 196600, 196608, 6)
+layer_0/tile_data = PackedInt32Array(327671, 131072, 2, 327672, 131072, 2, 327673, 131072, 2, 327674, 131072, 2, 327675, 131072, 2, 327676, 131072, 2, 327677, 131072, 2, 327678, 131072, 2, 327679, 131072, 2, 262144, 131072, 2, 262145, 131072, 2, 262146, 131072, 2, 262147, 131072, 2, 262148, 131072, 2, 262149, 131072, 2, 262150, 131072, 2, 262151, 131072, 2, 262152, 131072, 2, 196616, 131072, 2, 131080, 131072, 2, 65544, 131072, 2, 8, 131072, 2, -327672, 131072, 2, 262135, 131072, 2, 196599, 131072, 2, 131063, 131072, 2, 65527, 131072, 2, -9, 131072, 2, -65545, 131072, 2, -131081, 131072, 2, -196617, 131072, 2, -262153, 131072, 2, -262152, 131072, 2, -262151, 131072, 2, -262150, 131072, 2, -262149, 131072, 2, -262148, 131072, 2, -262147, 131072, 2, -262146, 131072, 2, -262145, 131072, 2, -327680, 131072, 2, -327679, 131072, 2, -327678, 131072, 2, -327677, 131072, 2, -327676, 131072, 2, -327675, 131072, 2, -327674, 131072, 2, -327673, 131072, 2, 262136, 196608, 5, 262137, 131072, 5, 262138, 131072, 5, 262139, 131072, 5, 262140, 131072, 5, 262141, 131072, 5, 262142, 131072, 5, 262143, 131072, 5, 196608, 131072, 5, 196609, 131072, 5, 196610, 131072, 5, 196611, 131072, 5, 196612, 131072, 5, 196613, 131072, 5, 196614, 131072, 5, 196615, 65536, 5, 131079, 65536, 6, 65543, 65536, 6, 7, 65536, 6, -65529, 65536, 6, -262137, 65536, 7, -262138, 131072, 7, -262139, 131072, 7, -262140, 131072, 7, -262141, 131072, 7, -262142, 131072, 7, -262143, 131072, 7, -262144, 131072, 7, -196609, 131072, 7, -196610, 131072, 7, -196611, 131072, 7, -196612, 131072, 7, -196613, 131072, 7, -196614, 131072, 7, -196615, 131072, 7, -196616, 196608, 7, -131080, 196608, 6, -65544, 196608, 6, -8, 196608, 6, 65528, 196608, 6, 131064, 196608, 6, 196600, 196608, 6, -196600, 65536, 6, -131064, 65536, 6, -262136, 65536, 7, -65528, 65536, 5, -131065, 851968, 11, -196601, 851968, 10)
 
 [node name="Timer" parent="." node_paths=PackedStringArray("freezables", "time_label", "crt_shader") instance=ExtResource("4_xy4tn")]
 wait_time = 5.0
 one_shot = false
-freezables = [NodePath("../CharacterBody2D")]
+freezables = [NodePath("../player")]
 duplicate_opacity = 0.8
-time_label = NodePath("../CharacterBody2D/CollisionShape2D/TimeLabel")
+time_label = NodePath("../player/TimeLabel")
 max_history_length = 200
 crt_shader = NodePath("../CanvasLayer/RewindCrt")
 
@@ -321,3 +313,8 @@ offset_bottom = 19.0
 scale = Vector2(0.325, 0.325)
 theme = SubResource("Theme_7jktm")
 text = "Go through the door to win"
+
+[node name="Door2" parent="." instance=ExtResource("6_ejswk")]
+position = Vector2(265, 52)
+scale = Vector2(1, 1.6)
+next_level = ExtResource("7_bbk5w")

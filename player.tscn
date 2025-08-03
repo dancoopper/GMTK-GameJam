@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dw6jir2b453su"]
+[gd_scene load_steps=21 format=3 uid="uid://dw6jir2b453su"]
 
 [ext_resource type="Script" uid="uid://bvjupxjc2skqi" path="res://player.gd" id="1_onrkg"]
 [ext_resource type="Texture2D" uid="uid://vvac6id3mm1b" path="res://assests/Ramses Free Package/Idle/Spr_Idle.png" id="2_onrkg"]
@@ -122,7 +122,10 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_i3pqv"]
+radius = 9.05539
+
+[node name="player" type="CharacterBody2D"]
 script = ExtResource("1_onrkg")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -130,3 +133,7 @@ position = Vector2(2, -9)
 sprite_frames = SubResource("SpriteFrames_4flbx")
 animation = &"idle"
 autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -9)
+shape = SubResource("CircleShape2D_i3pqv")

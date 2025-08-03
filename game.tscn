@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://dardml1ldmbnb"]
+
+[ext_resource type="PackedScene" uid="uid://dw6jir2b453su" path="res://player.tscn" id="1_80nbo"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_80nbo"]
+
+[node name="Game" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_80nbo")]
+position = Vector2(50, 82)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(144, 83)
+zoom = Vector2(4, 4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(142, 164)
+shape = SubResource("WorldBoundaryShape2D_80nbo")

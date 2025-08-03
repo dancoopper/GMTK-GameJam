@@ -71,6 +71,6 @@ position = Vector2(142, 243)
 shape = SubResource("RectangleShape2D_e5sgc")
 
 [node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(-83, 247)
+position = Vector2(-385, 251)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
